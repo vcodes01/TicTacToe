@@ -1,0 +1,30 @@
+* {
+    box-sizing: border-box;
+}
+/* CSS selectors */
+:root {
+    --cell-size: 100px;
+    /* how big the x's and o's will be */
+    --mark-size: cal(var(--cell-size)* .9);
+}
+body {
+    margin: 0;
+}
+.board {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: repeat(3, auto);
+}
+.cell {
+    /* width: 100px;
+    height: 100px; */
+    background-color: white;
+    border: 1px solid black; 
+    width: var(--cell-size);
+    height: var(--cell-size);
+}
