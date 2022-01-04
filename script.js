@@ -18,10 +18,10 @@ const winMessageTxtElement = document.querySelector('[data-win-message-txt')
 const winMessageElement = document.getElementById('winMessage')
 
 startGame()
-restartButton.addEventListener('click, startGame')
+restartButton.addEventListener('click', startGame)
 
 function startGame() {
-    circleTurn = FontFaceSetLoadEvent
+circleTurn = false
 cellElements.forEach(cell => {
     cell.addEventListener ('click', handleClick, {once: true})
 })
@@ -51,11 +51,11 @@ function endGame(draw) {
   }
   
 
-function isDraw() {
-  return [...cellElements].every(cell => {
-    return cell.classList.contains(ClassX) || cell.classList.contains(CircleClass)
-  })
-}
+// function isDraw() {
+//   return [...cellElements].every(cell => {
+//     return cell.classList.contains(ClassX) || cell.classList.contains(CircleClass)
+//   })
+// }
 
 function placeMark(cell, currentClass) {
     cell.classList.add(currentClass)
@@ -73,9 +73,7 @@ function setBoardHoverClass() {
         board.classList.add(ClassX)
     }
 } 
-function checkWin(currentClass) {
-    WinCombos.some(combination =>); {
-    
+
         function checkWin(currentClass) {
             return WinCombos.some(combination => {
               return combination.every(index => {
@@ -83,5 +81,3 @@ function checkWin(currentClass) {
               })
             })
           }
-    }
-}

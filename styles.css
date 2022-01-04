@@ -71,7 +71,7 @@ background-color: lightgrey;
 content: '';
 width: 9px;
 height: 90px;
-background-color: black; 
+background-color: dodgerblue; 
 position: absolute;
 }
 
@@ -92,7 +92,7 @@ width: 90px;
 height: 90px;
 position: absolute;
 border-radius: 50%;
-background-color: black;
+background-color: rgb(224, 161, 233);
 }
 
 /* .cell.circle::before,
