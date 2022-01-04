@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,11 @@
     <link rel="stylesheet" href="styles.css">
     <title>Tic Tac Toe</title>
 </head>
+
 <body>
-    <div class="board" id="board">  <!--class is used to acess it in css / id is used to acess it in JS-->
+    <div class="board x" id="board">
+        <!--class is used to acess it in css / id is used to acess it in JS-->
+        <div class="cell" data-cell></div>  
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
@@ -17,13 +21,14 @@
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
-        <div class="cell" data-cell></div>
+<!--         <div class="cell x" data-cell></div> -->
+    </div>
+    <div class="win-message" id="winMessage">
+        <div data-win-message-txt></div>
+        <button id="restartButton">Restart</button>
 
     </div>
-    <div class="win-message">
-        <div data-win-message-text id="winMessage"></div>
-        <button id="restartButton">Restart</button> 
-    </div>
-<script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

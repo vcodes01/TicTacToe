@@ -1,12 +1,14 @@
-* {
+/* The ::after selector inserts something after the content of each selected element */
+/* Use the ::before selector to insert something before the content. */
+*, *::before, *::after {
     box-sizing: border-box;
 }
 /* CSS selectors */
-:root {
+/* :root {
     --cell-size: 100px;
     /* how big the x's and o's will be */
-    --mark-size: cal(var(--cell-size)* .9);
-}
+    /* --mark-size: cal(var(--cell-size)* .9);
+} */ 
 body {
     margin: 0;
 }
@@ -21,10 +23,125 @@ body {
     grid-template-columns: repeat(3, auto);
 }
 .cell {
-    /* width: 100px;
-    height: 100px; */
-    background-color: white;
+    width: 100px;
+    height: 100px;
     border: 1px solid black; 
-    width: var(--cell-size);
-    height: var(--cell-size);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    /* width: var(--cell-size);
+    height: var(--cell-size); */
 }
+/* removing the border from the board */
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3) {
+border-top: none;
+}
+
+.cell:nth-child(3n+1) {
+    border-left: none;
+}
+.cell:nth-child(3n+3) {
+    border-right: none;
+}
+.cell:last-child,
+.cell:nth-child(8),
+.cell:nth-child(7) {
+    border-bottom: none;
+}
+
+.cell.x,
+.cell.circle {
+    cursor: not-allowed;
+
+}
+/* .cell.x::before, 
+.cell.x::after {
+    background-color: black;
+} 
+
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after,
+.board.circle .cell:not(.x):not(.circle):hover::before {
+background-color: lightgrey;
+} */
+
+/* making the x */
+/* not selector - only applying the hover effect when not already on an X or circle cell */
+.cell.x::before,
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::before,
+.board.x .cell:not(.x):not(.circle):hover::after {
+content: '';
+width: 9px;
+height: 90px;
+background-color: black; 
+position: absolute;
+}
+
+.cell.x::before,
+.board.x .cell:not(.x):not(.circle):hover::before { 
+ transform: rotate(45deg);
+}
+.cell.x::after,
+.board.x .cell:not(.x):not(.circle):hover::after {
+transform: rotate(-45deg);
+}
+
+/* making the O's */
+.cell.circle::before,
+.cell.circle::after {
+content: '';
+width: 90px;
+height: 90px;
+position: absolute;
+border-radius: 50%;
+background-color: black;
+}
+
+/* .cell.circle::before,
+.board.x .cell:hover::before{
+    width: 90px;
+    height: 90px;
+    background-color: black;
+}
+.cell.circle::after,
+.board.x .cell:hover::after{
+    width: 63x;
+    height: 63px;
+    background-color: white;
+} */
+
+.win-message {
+    display: none;
+    position: fixed;
+    background-color: rgba(0, 0, 0, .9) ;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    font-size: 4em;
+    }
+    .win-message button {
+        font-size: 50px;
+        background-color: white;
+        border: 1px solid black;
+        padding: 6px;
+        cursor: pointer;
+    }
+    .win-message button:hover {
+        background-color: black;
+        color: white;
+        border-color: white;
+    }
+    .win-message.show {
+        display: flex;
+    }
